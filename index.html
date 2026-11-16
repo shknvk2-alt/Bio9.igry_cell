@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аркадний портал</title>
+    <title>Аркадний портал (8 ігор)</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+            background: #1e1e2f;
             color: #ffffff;
             text-align: center;
             margin: 0;
-            padding: 50px 20px;
+            padding: 30px 20px;
         }
-        h1 {
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        p.subtitle {
-            color: #b0b0c3;
-            margin-bottom: 40px;
-        }
+        h1 { margin-bottom: 5px; }
+        p.subtitle { color: #b0b0c3; margin-bottom: 30px; }
+        
         .user-box {
-            background: rgba(255, 255, 255, 0.05);
+            background: #2f2f4f;
             padding: 15px;
             border-radius: 10px;
             display: inline-block;
             margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         input {
             padding: 10px 15px;
@@ -38,91 +32,94 @@
             width: 220px;
             text-align: center;
         }
+
         .games-container {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
         }
         .game-card {
             background: #2f2f4f;
             padding: 20px;
             border-radius: 12px;
-            width: 220px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             transition: transform 0.2s, background 0.2s;
         }
         .game-card:hover {
             transform: translateY(-5px);
             background: #38385e;
         }
-        .game-card h3 {
-            margin-top: 0;
-            color: #4df;
-        }
+        .game-card h3 { margin-top: 0; color: #4df; }
         .game-card a {
             display: inline-block;
             margin-top: 15px;
-            padding: 10px 20px;
+            padding: 8px 16px;
             background: #4e54c8;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background 0.2s;
         }
-        .game-card a:hover {
-            background: #6c72e8;
-        }
+        .game-card a:hover { background: #6c72e8; }
     </style>
 </head>
 <body>
 
     <h1>🎮 Мої міні-ігри</h1>
-    <p class="subtitle">Обирай гру, вводь своє ім'я та змагайся за кращий результат!</p>
+    <p class="subtitle">Введіть своє ім'я та вибирайте гру для змагання в таблиці!</p>
 
-    <!-- Поле для введення нікнейму -->
     <div class="user-box">
         <label for="playerName">Ваше ім'я (нікнейм):</label><br><br>
         <input type="text" id="playerName" placeholder="Введіть нік...">
     </div>
 
-    <!-- Список ігор -->
+    <!-- Сітка з 8 іграми -->
     <div class="games-container">
-        
-        <!-- Гра 1 -->
         <div class="game-card">
             <h3>Змійка</h3>
-            <p>Збирайте яблука та не врізайтеся в стіни.</p>
             <a href="snake.html" onclick="saveName()">Грати</a>
         </div>
-
-        <!-- Гра 2 -->
         <div class="game-card">
             <h3>Тетріс</h3>
-            <p>Складайте лінії з фігур, що падають.</p>
             <a href="tetris.html" onclick="saveName()">Грати</a>
         </div>
-
+        <div class="game-card">
+            <h3>Клікер</h3>
+            <a href="clicker.html" onclick="saveName()">Грати</a>
+        </div>
+        <div class="game-card">
+            <h3>Вгадай число</h3>
+            <a href="guess.html" onclick="saveName()">Грати</a>
+        </div>
+        <div class="game-card">
+            <h3>Хрестики-нулики</h3>
+            <a href="tictactoe.html" onclick="saveName()">Грати</a>
+        </div>
+        <div class="game-card">
+            <h3>Пам'ять</h3>
+            <a href="memory.html" onclick="saveName()">Грати</a>
+        </div>
+        <div class="game-card">
+            <h3>Пінг-понг</h3>
+            <a href="pong.html" onclick="saveName()">Грати</a>
+        </div>
+        <div class="game-card">
+            <h3>Стрибки</h3>
+            <a href="jump.html" onclick="saveName()">Грати</a>
+        </div>
     </div>
 
     <script>
-        // Коли сторінка завантажується, перевіряємо, чи є збережене ім'я в пам'яті браузера
         window.onload = function() {
             const savedName = localStorage.getItem("playerName");
-            if (savedName) {
-                document.getElementById('playerName').value = savedName;
-            }
+            if (savedName) document.getElementById('playerName').value = savedName;
         };
 
-        // Функція, яка зберігає ім'я перед тим, як гравець клісне "Грати"
         function saveName() {
             const nameInput = document.getElementById('playerName').value.trim();
-            if (nameInput) {
-                localStorage.setItem("playerName", nameInput);
-            } else {
-                localStorage.setItem("playerName", "Гість");
-            }
+            localStorage.setItem("playerName", nameInput || "Гість");
         }
     </script>
 
