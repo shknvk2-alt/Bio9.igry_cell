@@ -3,34 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аркадний портал (8 ігор)</title>
+    <title>Аркадний портал</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1e1e2f;
+            background: linear-gradient(135deg, #ff0844, #ffb199);
             color: #ffffff;
             text-align: center;
             margin: 0;
             padding: 30px 20px;
+            min-height: 100vh;
         }
-        h1 { margin-bottom: 5px; }
-        p.subtitle { color: #b0b0c3; margin-bottom: 30px; }
+        h1 { 
+            margin-bottom: 5px; 
+            font-size: 3rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        p.subtitle { 
+            color: #fff; 
+            font-size: 1.2rem;
+            margin-bottom: 30px; 
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+        }
         
         .user-box {
-            background: #2f2f4f;
-            padding: 15px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 15px;
             display: inline-block;
             margin-bottom: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .user-box label {
+            font-weight: bold;
+            font-size: 1.1rem;
         }
         input {
-            padding: 10px 15px;
+            padding: 12px 18px;
             font-size: 16px;
-            border-radius: 5px;
+            border-radius: 8px;
             border: none;
             outline: none;
-            width: 220px;
+            width: 240px;
             text-align: center;
+            margin-top: 10px;
+            background: #ffffff;
+            color: #333;
+            font-weight: bold;
         }
 
         .games-container {
@@ -41,72 +62,86 @@
             margin: 0 auto;
         }
         .game-card {
-            background: #2f2f4f;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: transform 0.2s, background 0.2s;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
         }
         .game-card:hover {
-            transform: translateY(-5px);
-            background: #38385e;
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
         }
-        .game-card h3 { margin-top: 0; color: #4df; }
+        .game-card h3 { 
+            margin-top: 0; 
+            color: #fff; 
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
         .game-card a {
             display: inline-block;
             margin-top: 15px;
-            padding: 8px 16px;
-            background: #4e54c8;
-            color: white;
+            padding: 10px 20px;
+            background: #00f2fe;
+            color: #1a1a1a;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background 0.2s, transform 0.2s;
         }
-        .game-card a:hover { background: #6c72e8; }
+        .game-card a:hover { 
+            background: #4facfe; 
+            color: white;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
 
-    <h1>🎮 Мої міні-ігри</h1>
-    <p class="subtitle">Введіть своє ім'я та вибирайте гру для змагання в таблиці!</p>
+    <h1>🎮 Яскравий Аркадний Портал</h1>
+    <p class="subtitle">Введи своє ім'я, обирай гру та змагайся за лідерство!</p>
 
     <div class="user-box">
-        <label for="playerName">Ваше ім'я (нікнейм):</label><br><br>
-        <input type="text" id="playerName" placeholder="Введіть нік...">
+        <label for="playerName">Твоє ім'я (нікнейм):</label><br>
+        <input type="text" id="playerName" placeholder="Введи нік...">
     </div>
 
     <!-- Сітка з 8 іграми -->
     <div class="games-container">
         <div class="game-card">
-            <h3>Змійка</h3>
+            <h3>🐍 Змійка</h3>
             <a href="snake.html" onclick="saveName()">Грати</a>
         </div>
         <div class="game-card">
-            <h3>Тетріс</h3>
+            <h3>🧱 Тетріс</h3>
             <a href="tetris.html" onclick="saveName()">Грати</a>
         </div>
         <div class="game-card">
-            <h3>Клікер</h3>
+            <h3>⚡ Клікер</h3>
             <a href="clicker.html" onclick="saveName()">Грати</a>
         </div>
         <div class="game-card">
-            <h3>Вгадай число</h3>
+            <h3>🔢 Вгадай число</h3>
             <a href="guess.html" onclick="saveName()">Грати</a>
         </div>
         <div class="game-card">
-            <h3>Хрестики-нулики</h3>
+            <h3>❌ Хрестики-нулики</h3>
             <a href="tictactoe.html" onclick="saveName()">Грати</a>
         </div>
         <div class="game-card">
-            <h3>Пам'ять</h3>
+            <h3>🧠 Пам'ять</h3>
             <a href="memory.html" onclick="saveName()">Грати</a>
         </div>
         <div class="game-card">
-            <h3>Пінг-понг</h3>
+            <h3>🏓 Пінг-понг</h3>
             <a href="pong.html" onclick="saveName()">Грати</a>
         </div>
         <div class="game-card">
-            <h3>Стрибки</h3>
+            <h3>🚀 Стрибки</h3>
             <a href="jump.html" onclick="saveName()">Грати</a>
         </div>
     </div>
